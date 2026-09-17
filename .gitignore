@@ -4,3 +4,5 @@ dist/
 .DS_Store
 Thumbs.db
 *.log
+Video_scroll.MOV
+.playwright-mcp/

@@ -1,0 +1,7 @@
+﻿Video_scroll.MOV
+*.MOV
+*.mov
+.playwright-mcp/
+.git/
+node_modules/
+*.log
