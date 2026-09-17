@@ -1,0 +1,20 @@
+{
+  "name": "apple-scroll-hero",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "extract": "node scripts/extract-frames.mjs",
+    "extract:ps1": "powershell -ExecutionPolicy Bypass -File scripts/extract-frames.ps1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.20"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}
