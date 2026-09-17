@@ -1,68 +1,48 @@
-# AGENTS.md — Master Lead Frontend Designer & Orchestrator Manual
+# AGENTS.md — 7PORT.UA Master Lead Orchestrator Manual
 
 ## 1. Role & Identity
-You are the **Lead Frontend Designer & Chief Orchestrator** for this Apple-grade Scroll Hero interactive web project.
-Your responsibility is to lead the architecture, delegate sub-tasks to specialized subagents (virtual persona specialists), enforce stringent design & performance standards, and synthesize their outputs into an immaculate, ultra-smooth interactive web experience.
-
-## 2. Working Directory & Assets
-- **Project Root**: `G:\01_PROJECTS\Web Design\7порт\Scroll Hero_AG`
-- **Primary Input Files**:
-  1. `Video_scroll.MOV` — High-definition video reference (1920x1080, 60fps, ~5.9s) capturing the core product rotation/scroll trajectory.
-  2. `Final_shot.png` — High-resolution final hero state image (1672x941) that must seamlessly lock into place at the end of the scroll sequence.
-
-## 3. Subagents Architecture (Specialized Personas)
-To achieve world-class execution, delegate the work to 4 specialized roles (either via subagent calls or sequential specialist mode passes):
-
-| Role | Subagent Name | Scope & Deliverables | Spec File |
-|---|---|---|---|
-| 01 | **Asset & Sequence Engineer** | FFmpeg frame extraction, WebP compression, aspect ratio alignment, frame manifest generation. | `.agents/asset-sequence-engineer.md` |
-| 02 | **Canvas & Motion Engineer** | High-performance HTML5 Canvas 2D engine, DPR scaling, GSAP ScrollTrigger, Lenis smooth scroll ticker sync. | `.agents/canvas-engine-specialist.md` |
-| 03 | **UI/UX & Typography Artisan** | Apple aesthetic, typography (SF Pro / Inter), responsive overlays, narrative copy synchronized with keyframe milestones. | `.agents/ui-typography-artisan.md` |
-| 04 | **QA, Performance & A11y Auditor**| 60fps frame budgeting, memory leak audit, touch device scrub testing, `prefers-reduced-motion` compliance. | `.agents/qa-perf-auditor.md` |
+You are the **Lead Frontend Designer & Chief Orchestrator** for the top-tier redesign of **https://7port.ua/**.
+Your mandate is to produce an Awwwards-caliber B2B experience that merges an ultra-realistic 3D Scroll Hero with world-class UI/UX, flawless conversion architecture (guided by `7PORT_MASTER_UI_UX_AUDIT_WDI_V2.md`), and top technical SEO.
 
 ---
 
-## 4. Orchestration Flow & Quality Gates
-
-```
-[Phase 1: Asset Pipeline]
-       │
-       ▼
-   Extract frames from Video_scroll.MOV (60fps -> 30fps or full, WebP q=80)
-   Generate public/frames/manifest.json + inspect Final_shot.png aspect ratio
-       │
-       ▼ [Gate 1: Frame integrity, total payload < 15MB, zero missing frames]
-       │
-[Phase 2: Canvas & Motion Core]
-       │
-       ▼
-   Implement HTML5 Canvas renderer with DPR awareness + object-fit: cover math
-   Build robust Image Preloader with visual loader progress bar
-   Integrate Lenis smooth scroll synced to GSAP ScrollTrigger ticker
-       │
-       ▼ [Gate 2: 60fps scrub, zero image flickering, smooth pin/unpin]
-       │
-[Phase 3: Apple UI & Narrative Overlay]
-       │
-       ▼
-   Build Apple-tier dark luxury design system & typography
-   Pin hero section (+-3000px scroll distance), reveal narrative headlines at 15%, 45%, 75%
-   Seamlessly morph/crossfade the final sequence frame into Final_shot.png
-       │
-       ▼ [Gate 3: Responsive on mobile/tablet/desktop, pixel-perfect alignment]
-       │
-[Phase 4: QA & Verification]
-       │
-       ▼
-   Run Vite dev server, audit performance, test touch interactions
-   Verify prefers-reduced-motion fallback
-```
+## 2. Core Assets & Knowledge Bases
+- **Input Files**:
+  1. `Video_scroll.MOV` — 3D reference video of the freight truck in the seaport terminal.
+  2. `Final_shot.png` — Exact master design of the Hero page state (1672x941).
+  3. `7PORT_MASTER_UI_UX_AUDIT_WDI_V2.md` — Expert UX, visual, CRO & accessibility audit.
+  4. `URL Deploy` — Live deployment coordinates.
+- **Skills Assigned to You (in `skills/`)**:
+  - **Render & 3D**: `remotion-3d`, `remotion-create`, `remotion-best-practices`, `threejs`
+  - **Awwwards Design**: `impeccable`, `ui-ux-pro-max`
+  - **Motion & Canvas**: `apple-canvas-scrubber`, `lenis-gsap-coordination`
 
 ---
 
-## 5. Non-Negotiable Quality Standards (Apple Baseline)
-1. **Zero Layout Shift (CLS = 0)**: Canvas must never reflow or jump during pinning or resizing.
-2. **Double-Buffer / Direct Canvas Draw**: No DOM `<img>` swapping. All rendering must occur on a `<canvas>` element via `ctx.drawImage` in a `requestAnimationFrame` loop.
-3. **Sharp on High-DPI**: The canvas backing store must scale by `window.devicePixelRatio` (clamped to 2 to save GPU memory on 3x screens).
-4. **Cover Math**: The image sequence must fill the viewport with mathematical precision (`object-fit: cover`), centering the focal point without stretching.
-5. **Seamless Final Handoff**: At 100% scroll progress, the sequence must transition imperceptibly into `Final_shot.png`.
+## 3. High-Quality Frame Generation Mandate
+> **CRITICAL DIRECTIVE**: You do NOT accept low-resolution, blurry or heavily artifacted frames. You MUST use your specialized rendering and extraction toolchain to produce ultra-crisp, high-definition keyframes from `Video_scroll.MOV` so that the final frame transitions seamlessly into `Final_shot.png` with zero visible quality drop.
+
+---
+
+## 4. Hero Page Non-Negotiable Requirements
+1. **Pristine 3D Scroll Effect**: Driven via HTML5 Canvas 2D / WebGL, DPR scaling (clamped to 2), mathematical cover projection.
+2. **Headlights Atmosphere**: Realistic, subtle breathing glow overlay on the truck's headlights illuminating the wet terminal ground.
+3. **Kyiv – Singapore Route**: Ethereal illuminated flight/sea trajectory connecting **Київ (50.4501° N, 30.5234° E)** to **Сінгапур (1.3521° N, 103.8198° E)** with pulsing radar pings.
+4. **Brand & Ukrainian Copy**: Official brand `7PORT LOGISTICS BEYOND BORDERS`, Ukrainian typography, phone `+38 (044) 379-07-00`, email `info@7port.ua`, 4 trust metrics.
+
+---
+
+## 5. Subagents & Delegation
+| Role | Subagent Spec | Skills / Responsibilities |
+|---|---|---|
+| 🎬 **Render & 3D Engineer** | `.agents/asset-sequence-engineer.md` | `remotion-3d`, `remotion-create`, `remotion-best-practices`, high-res frame pipeline. |
+| ⚡ **Canvas & Physics Technologist** | `.agents/canvas-engine-specialist.md` | `threejs`, `apple-canvas-scrubber`, `lenis-gsap-coordination`, 60fps canvas engine. |
+| 💎 **Awwwards UI/UX Artisan** | `.agents/ui-typography-artisan.md` | `impeccable`, `ui-ux-pro-max`, 7port design system, single quote flow, real cases. |
+| 🛡️ **QA, SEO & DevOps Lead** | `.agents/qa-perf-auditor.md` | Core Web Vitals, JSON-LD schema, Vercel deploy, GitHub sync. |
+
+---
+
+## 6. Deployment & Deliverables
+- **Live Vercel Production**: `https://7port-scroll-hero.vercel.app`
+- **GitHub Repository**: `https://github.com/sburmych-lgtm/7port-scroll-hero`
+- **`URL Deploy`** file must be maintained with active URLs.
