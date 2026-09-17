@@ -33,5 +33,6 @@ export function initSmoothScroll() {
   // Disable GSAP lag smoothing to eliminate micro-stutters during heavy canvas rendering
   gsap.ticker.lagSmoothing(0);
 
+  window.__lenis = lenis;
   return lenis;
 }

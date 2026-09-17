@@ -56,7 +56,7 @@ const outputPattern = path.join(outputDir, 'frame_%04d.webp');
 
 console.log(`⚙️ Extracting at ${targetFps} FPS (WebP, q=78, lanczos scaling)...`);
 
-const ffmpegCmd = `ffmpeg -y -i "${videoPath}" -vf "fps=${targetFps},scale=1920:1080:flags=lanczos" -c:v libwebp -lossless 0 -q:v 78 -compression_level 6 -preset photo "${outputPattern}"`;
+const ffmpegCmd = `ffmpeg -y -i "${videoPath}" -vf "fps=${targetFps},scale=1920:1080:flags=lanczos" -c:v libwebp -lossless 0 -q:v 82 -compression_level 6 -preset photo "${outputPattern}"`;
 
 try {
   execSync(ffmpegCmd, { stdio: 'inherit' });
