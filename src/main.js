@@ -107,7 +107,9 @@ async function bootstrap() {
         successBanner.className = 'calc-success-banner';
         successBanner.setAttribute('role', 'alert');
         successBanner.innerHTML = `
-          <div class="success-icon">✅</div>
+          <div class="success-icon-wrap">
+            <svg class="success-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
           <h3>Запит на розрахунок успішно прийнято!</h3>
           <p>Провідний логіст 7PORT вже аналізує ваш маршрут. Ми зв'яжемося з вами з детальним кошторисом найближчим часом.</p>
           <button type="button" class="btn-reset-calc">Розрахувати інший вантаж</button>

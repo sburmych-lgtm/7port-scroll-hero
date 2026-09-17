@@ -506,6 +506,63 @@ body {
   z-index: 4;
 }
 
+/* Dynamic Floating Kinetic Intro Captions */
+.intro-floating-caption {
+  position: absolute;
+  z-index: 15;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-apple), transform 0.4s var(--ease-apple);
+}
+
+.caption-truck {
+  left: 6%;
+  top: 38%;
+  max-width: 440px;
+}
+
+.caption-plane {
+  right: 8%;
+  top: 24%;
+  max-width: 440px;
+}
+
+.caption-glass {
+  background: rgba(8, 12, 18, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 140, 255, 0.3);
+  border-left: 3px solid var(--accent-cyan);
+  border-radius: 16px;
+  padding: 22px 26px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 140, 255, 0.15);
+}
+
+.caption-index {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.caption-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.caption-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
 /* Hero Narrative Overlay Content */
 .hero-ui-overlay {
   position: absolute;
@@ -521,6 +578,27 @@ body {
 .hero-main-content {
   max-width: 680px;
   pointer-events: auto;
+  opacity: 0; /* starts at 0, smoothly transitions at progress > 0.74 */
+  transform: translateY(24px);
+  transition: opacity 0.4s var(--ease-apple), transform 0.4s var(--ease-apple);
+}
+
+@media (min-width: 1025px) {
+  .hero-main-content {
+    /* On desktop, Final_shot.png displays the master typography, CTAs and trust badges.
+       We preserve .hero-main-content in DOM for SEO and screen readers, but visually hide it to prevent duplicate overlay */
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+  }
 }
 .hero-badge-tag {
   font-size: 11px;
@@ -610,7 +688,7 @@ body {
   transform: translateX(4px);
 }
 
-/* 4 Trust Badges */
+/* 4 Trust Badges (Vector SVGs) */
 .hero-metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -621,10 +699,23 @@ body {
 .metric-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
-.metric-icon {
-  font-size: 20px;
+.metric-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(0, 132, 255, 0.1);
+  border: 1px solid rgba(0, 132, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.metric-svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--accent-cyan);
 }
 .metric-val {
   font-size: 17px;
@@ -976,7 +1067,74 @@ body {
   margin-top: auto;
 }
 
-/* 3 Guarantees Grid */
+/* Official Accreditations & Regional Hubs Banner */
+.trust-accreditations-strip {
+  border-radius: 20px;
+  background: rgba(12, 18, 28, 0.7);
+  border: 1px solid var(--border-subtle);
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.accredit-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.accredit-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.accredit-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.badge-code {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(0, 132, 255, 0.15);
+  border: 1px solid rgba(0, 132, 255, 0.35);
+  color: var(--accent-7port-glow);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.badge-title {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+.hubs-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.hub-pill {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: #cbd5e1;
+  transition: all 0.2s;
+}
+.hub-pill:hover {
+  background: rgba(0, 132, 255, 0.12);
+  border-color: rgba(0, 132, 255, 0.3);
+  color: #fff;
+}
+
+/* 3 Guarantees Grid (100% Vector SVGs) */
 .guarantees-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -991,9 +1149,21 @@ body {
   gap: 16px;
   align-items: flex-start;
 }
-.guarantee-icon {
-  font-size: 28px;
-  line-height: 1;
+.guarantee-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 132, 255, 0.1);
+  border: 1px solid rgba(0, 132, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.guarantee-svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--accent-cyan);
 }
 .guarantee-body h4 {
   font-size: 16px;
@@ -1007,6 +1177,16 @@ body {
   line-height: 1.5;
 }
 
+/* Privacy note SVG */
+.inline-lock-svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--accent-cyan);
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: 6px;
+}
+
 /* Calculator Success State */
 .calc-success-banner {
   text-align: center;
@@ -1017,8 +1197,20 @@ body {
   gap: 16px;
   animation: fadeIn 0.4s ease-out;
 }
-.calc-success-banner .success-icon {
-  font-size: 48px;
+.success-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.12);
+  border: 2px solid rgba(16, 185, 129, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-svg {
+  width: 26px;
+  height: 26px;
+  stroke: #10b981;
 }
 .calc-success-banner h3 {
   font-size: 22px;
@@ -1156,6 +1348,9 @@ details[open] .faq-question::after {
 
 /* Responsive Mobile Rules */
 @media (max-width: 1024px) {
+  .final-shot-layer {
+    display: none !important;
+  }
   .hero-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1211,49 +1406,115 @@ details[open] .faq-question::after {
   .mobile-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(4px, -5px);
   }
+  .caption-truck {
+    left: 14px;
+    right: 14px;
+    top: auto;
+    bottom: 36px;
+    max-width: none;
+  }
+  .caption-plane {
+    left: 14px;
+    right: 14px;
+    top: 76px;
+    bottom: auto;
+    max-width: none;
+  }
+  .caption-glass {
+    padding: 14px 18px;
+    border-radius: 14px;
+  }
+  .caption-index {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+  .caption-title {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .caption-desc {
+    font-size: 12px;
+    line-height: 1.35;
+  }
   .hero-ui-overlay {
-    padding: 0 16px;
+    padding: 0 14px;
     align-items: flex-end;
-    padding-bottom: 28px;
+    padding-bottom: 16px;
+    pointer-events: none;
   }
   .hero-main-content {
-    background: rgba(6, 10, 18, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(180deg, transparent 0%, rgba(6, 10, 18, 0.6) 25%, rgba(6, 10, 18, 0.94) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
     border-radius: 18px;
-    padding: 20px;
+    padding: 18px 14px 10px 14px;
     width: 100%;
+    pointer-events: auto;
+  }
+  .hero-badge-tag {
+    font-size: 10px;
+    margin-bottom: 6px;
+    letter-spacing: 0.12em;
   }
   .hero-title-ua {
-    font-size: 26px;
-    line-height: 1.15;
-    margin-bottom: 12px;
+    font-size: 21px;
+    line-height: 1.2;
+    margin-bottom: 8px;
   }
   .hero-desc-ua {
-    font-size: 13px;
-    line-height: 1.45;
-    margin-bottom: 20px;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+    max-width: 100%;
   }
   .hero-actions-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-    margin-bottom: 20px;
+    flex-direction: row;
+    gap: 8px;
+    margin-bottom: 14px;
   }
   .btn-7port-glow, .btn-7port-outline {
+    flex: 1;
     justify-content: center;
-    padding: 12px 18px;
-    font-size: 14px;
-    width: 100%;
+    padding: 10px 12px;
+    font-size: 12px;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+  .btn-arrow, .icon-inline {
+    width: 13px;
+    height: 13px;
   }
   .hero-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding-top: 16px;
+    gap: 8px;
+    padding-top: 12px;
+  }
+  .metric-item {
+    gap: 8px;
+  }
+  .metric-icon-wrap {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+  .metric-svg {
+    width: 14px;
+    height: 14px;
+  }
+  .metric-val {
+    font-size: 14px;
+  }
+  .metric-sub {
+    font-size: 10px;
   }
   .hero-lockup-ctas, .route-radar-layer {
     display: none !important;
+  }
+  .trust-accreditations-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
   }
   .calc-form-grid {
     grid-template-columns: 1fr;

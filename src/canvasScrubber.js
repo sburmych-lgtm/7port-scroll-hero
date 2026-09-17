@@ -152,7 +152,11 @@ export class CanvasScrubber {
     } else {
       renderW = canvasH * imgRatio;
       renderH = canvasH;
-      offsetX = (canvasW - renderW) / 2;
+      // On mobile portrait (aspect ratio < 1.0), focal point is the truck and terminal at ~63% width
+      const focalX = window.innerWidth <= 1024 ? 0.63 : 0.50;
+      offsetX = canvasW * 0.5 - renderW * focalX;
+      // Clamp offsetX within image boundaries
+      offsetX = Math.min(0, Math.max(canvasW - renderW, offsetX));
       offsetY = 0;
     }
 
