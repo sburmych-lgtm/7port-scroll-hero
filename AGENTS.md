@@ -25,10 +25,14 @@ Your mandate is to produce an Awwwards-caliber B2B experience that merges an ult
 ---
 
 ## 4. Hero Page Non-Negotiable Requirements
-1. **Pristine 3D Scroll Effect**: Driven via HTML5 Canvas 2D / WebGL, DPR scaling (clamped to 2), mathematical cover projection.
-2. **Headlights Atmosphere**: Realistic, subtle breathing glow overlay on the truck's headlights illuminating the wet terminal ground.
-3. **Kyiv – Singapore Route**: Ethereal illuminated flight/sea trajectory connecting **Київ (50.4501° N, 30.5234° E)** to **Сінгапур (1.3521° N, 103.8198° E)** with pulsing radar pings.
-4. **Brand & Ukrainian Copy**: Official brand `7PORT LOGISTICS BEYOND BORDERS`, Ukrainian typography, phone `+38 (044) 379-07-00`, email `info@7port.ua`, 4 trust metrics.
+1. **Скрол строго НА МІСЦІ (Pinned Scroll / Залипання)**:
+   - Hero-секція повинна бути зафіксована (`pin: true` у ScrollTrigger) на весь екран (100vh).
+   - Під час скролу екран залишається на місці, а прокрутка коліщатка відтворює 3D-послідовність руху вантажівки (дистанція ~3000px).
+   - Лише коли вантажівка завершує маневр і з'являється еталонний стан `Final_shot.png` зі світлом фар та маршрутом — секція відлипає і дозволяє скролити вниз.
+2. **Pristine 3D Scroll Effect**: Driven via HTML5 Canvas 2D / WebGL, DPR scaling (clamped to 2), mathematical cover projection.
+3. **Headlights Atmosphere**: Realistic, subtle breathing glow overlay on the truck's headlights illuminating the wet terminal ground.
+4. **Kyiv – Singapore Route**: Ethereal illuminated flight/sea trajectory connecting **Київ (50.4501° N, 30.5234° E)** to **Сінгапур (1.3521° N, 103.8198° E)** with pulsing radar pings.
+5. **Brand & Ukrainian Copy**: Official brand `7PORT LOGISTICS BEYOND BORDERS`, Ukrainian typography, phone `+38 (044) 379-07-00`, email `info@7port.ua`, 4 trust metrics.
 
 ---
 
